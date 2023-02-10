@@ -1,0 +1,46 @@
+﻿<div>
+    <div class="chip-wrapper">
+        <ul class="chip-list">
+            @foreach (var label in Chips)
+            {
+                <Chip Label="@label" OnRemoveItem="@OnRemoveChip" ChipClass="@ChipClass" Color="@Color" />
+            }
+            <Input OnAddChipItem="OnAddChip" Values=@Chips OnRemoveLastChip="@OnRemoveChip" OnSetErrorMsg="HandleErrorMsg" />
+        </ul>
+    </div>
+    <p>
+        @if (!string.IsNullOrEmpty(ErrorMsg))
+        {
+            <span class="err-msg">@ErrorMsg</span>
+        }
+    </p>
+</div>
+
+
+@code {
+    [Parameter]
+    public List<string> Chips { get; set; } = new List<string>();
+
+    [Parameter]
+    public string ChipClass { get; set; } = string.Empty;
+
+    [Parameter]
+    public string Color { get; set; } = "primary";
+
+    private string ErrorMsg { get; set; } = string.Empty;
+
+    public void OnAddChip(string chip)
+    {
+        Chips.Add(chip);
+    }
+
+    public void OnRemoveChip(string chip)
+    {
+        Chips.Remove(chip);
+    }
+
+    public void HandleErrorMsg(string error)
+    {
+        ErrorMsg = error;
+    }
+}

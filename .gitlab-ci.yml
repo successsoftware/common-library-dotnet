@@ -1,0 +1,19 @@
+image: mcr.microsoft.com/dotnet/sdk:latest
+
+stages:
+  - pack
+
+variables:
+  NUGET_VERSION:
+    description: "NuGet version"
+    value: "2.0.0"
+
+before_script:
+  - dotnet restore
+
+pack:
+  when: manual
+  stage: pack
+  script:
+    - dotnet pack --force -c Release -o $PWD/nuget -p:PackageVersion=$NUGET_VERSION
+    - dotnet nuget push "$PWD/nuget/*.nupkg" --api-key $CI_NUGET_APIKEY --source "https://api.nuget.org/v3/index.json"

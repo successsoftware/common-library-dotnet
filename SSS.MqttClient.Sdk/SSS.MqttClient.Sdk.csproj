@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+    <Company>Success Software Services</Company>
+    <Authors>Tuan Cao</Authors>
+    <Copyright>@Success Software Services, 2022</Copyright>
+    <Version>1.0.4</Version>
+    <AssemblyVersion>1.0.4</AssemblyVersion>
+    <FileVersion>1.0.4</FileVersion>
+    <Description>Add method to connect server from credential</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MQTTnet" Version="4.1.3.436" />
+    <PackageReference Include="MQTTnet.AspNetCore" Version="4.1.3.436" />
+    <PackageReference Include="MQTTnet.Extensions.Rpc" Version="4.1.3.436" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
+  </ItemGroup>
+
+</Project>

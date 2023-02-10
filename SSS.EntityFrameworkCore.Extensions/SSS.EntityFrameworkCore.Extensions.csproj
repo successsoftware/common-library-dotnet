@@ -1,0 +1,34 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net7.0</TargetFramework>
+		<LangVersion>10</LangVersion>
+		<Authors>Tuan Cao</Authors>
+		<Description>Use to develop the common components, libraries, etc. that will be embedded into projects with configuration to use</Description>
+		<Copyright>@Success Software Services, 2022</Copyright>
+		<PackageTags>AspNet Core, Extensions, Authentication, Swagger, Fluent Validation, Automapper</PackageTags>
+		<PackageReleaseNotes></PackageReleaseNotes>
+		<Version>1.3.0</Version>
+		<Company>Success Software Services</Company>
+		<AssemblyVersion>1.3.0</AssemblyVersion>
+		<FileVersion>1.3.0</FileVersion>
+		<Nullable>disable</Nullable>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.0" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="7.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Identity.Core" Version="7.0.0" />
+		<PackageReference Include="Teronis.MSBuild.Packaging.ProjectBuildInPackage" Version="1.0.0">
+		  <PrivateAssets>all</PrivateAssets>
+		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\SSS.CommonLib\SSS.CommonLib.csproj" PrivateAssets="all" />
+	</ItemGroup>
+
+</Project>

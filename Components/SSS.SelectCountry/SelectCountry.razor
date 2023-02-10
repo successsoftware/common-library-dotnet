@@ -1,0 +1,35 @@
+﻿@inject IJSRuntime jsRuntime
+
+<div class="form-group">
+    <label>Country:</label>    
+    <div class="selectCountry-w-100">       
+        <input class="form-control" id="country_selector" @onfocusout="@(() => OnChangeHandler())"/>
+    </div>
+</div>
+
+@code{
+
+    [Parameter]
+    public EventCallback<string> OnChange { get; set; }    
+
+    [Parameter]
+    public string CountryName { get; set; }
+
+    protected override async void OnAfterRender(bool firstRender)
+    {
+        await jsRuntime.InvokeVoidAsync("initialCountryPicker");    
+        base.OnAfterRender(firstRender);
+
+        if (!string.IsNullOrEmpty(CountryName) && firstRender)
+        {
+            await jsRuntime.InvokeVoidAsync("setSelectedCountry", CountryName);
+        }       
+    }    
+
+    private async Task OnChangeHandler()
+    {       
+        var data = await jsRuntime.InvokeAsync<string>("getSelectCountryData");
+
+        await OnChange.InvokeAsync(data);
+    }   
+}

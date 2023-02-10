@@ -1,0 +1,73 @@
+﻿<li class="chip--li">
+    <input class="chip--input @(isValid ? "" : "input--error")" type="text" @bind-value="currentInputValue" @oninput="OnInput" @onkeydown="OnKeyDown" />    
+</li>
+
+@code {
+    [Parameter]
+    public EventCallback<string> OnAddChipItem { get; set; }
+
+    [Parameter]
+    public EventCallback<string> OnRemoveLastChip { get; set; }
+
+    [Parameter]
+    public EventCallback<string> OnSetErrorMsg { get; set; }
+
+    [Parameter]
+    public List<string> Values { get; set; } = new List<string>();
+
+    private string currentInputValue = string.Empty;
+
+    private string prevInputValue = string.Empty;
+
+    private List<string> validationErrors = new List<string>();
+
+    private bool isValid = true;
+
+    private string errorMsg = string.Empty;
+
+    private void OnInput(ChangeEventArgs args)
+    {
+        prevInputValue = currentInputValue;
+        currentInputValue = args.Value.ToString();
+    }
+
+    private void OnKeyDown(KeyboardEventArgs args)
+    {
+        if (currentInputValue.Length == 0 && args.Key == "Backspace" && Values.Count > 0)
+        {
+            OnRemoveLastChip.InvokeAsync(Values.Last());
+        }
+
+        if (args.Key == "Enter")
+        {
+            switch (true)
+            {
+                case true when string.IsNullOrWhiteSpace(currentInputValue):
+                    isValid = false;
+                    errorMsg = "Required value";
+                    break;
+                case true when currentInputValue.Length > 255:
+                    isValid = false;
+                    errorMsg = "Max length is 255 characters";
+                    break;
+                case true when Values.Any(x => x.ToLower().Contains(currentInputValue.ToLower())):
+                    isValid = false;
+                    errorMsg = "Can not input same value";
+                    break;
+                default:
+                    isValid = true;
+                    errorMsg = string.Empty;
+                    break;
+            }
+
+            if (isValid)
+            {
+                // add new chip
+                OnAddChipItem.InvokeAsync(currentInputValue);
+                currentInputValue = string.Empty;                
+            }
+
+            OnSetErrorMsg.InvokeAsync(errorMsg);
+        }
+    }
+}

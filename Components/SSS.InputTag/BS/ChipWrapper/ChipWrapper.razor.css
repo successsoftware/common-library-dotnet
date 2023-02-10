@@ -1,0 +1,21 @@
+﻿.chip-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid grey;
+    border-radius: .3rem;
+    line-height: 2px;
+}
+
+.err-msg {
+    color: red;
+    font-size: 12px;
+}
+
+.chip-list {
+    display: inline-flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: 0;
+    padding: 5px;
+    list-style: none;
+}

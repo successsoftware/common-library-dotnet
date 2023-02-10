@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net7.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>disable</Nullable>
+		<Authors>Tuan Cao</Authors>
+		<Company>Success Software Services</Company>
+		<Description>Library for CAP helper</Description>
+		<Copyright>@Success Software Services, 2022</Copyright>
+		<PackageTags>AspNet Core, Extensions, CAP</PackageTags>
+		<PackageReleaseNotes></PackageReleaseNotes>
+		<Version>1.1.0</Version>
+		<AssemblyVersion>1.1.0</AssemblyVersion>
+		<FileVersion>1.1.0</FileVersion>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="DotNetCore.CAP" Version="7.0.0" />
+		<PackageReference Include="DotNetCore.CAP.AzureServiceBus" Version="7.0.0" />
+		<PackageReference Include="DotNetCore.CAP.Dashboard" Version="7.0.0" />
+		<PackageReference Include="DotNetCore.CAP.PostgreSql" Version="7.0.0" />
+		<PackageReference Include="DotNetCore.CAP.RabbitMQ" Version="7.0.0" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
+		<PackageReference Include="Scrutor" Version="4.2.0" />
+	</ItemGroup>
+
+</Project>

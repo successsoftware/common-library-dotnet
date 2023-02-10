@@ -1,0 +1,30 @@
+﻿<li class="chip chip-outline @(ChipClass)">
+    <span class="chip--label">@Label</span>
+    <span @onclick="() => RemoveChip(Label)" title="remove @Label" class="chip--remove">&#10006;</span>
+</li>
+
+<style>
+    .chip-outline{
+        border-color: @Color !important;
+    }
+</style>
+
+@code {
+    [Parameter]
+    public string Label { get; set; } = string.Empty;
+
+    [Parameter]
+    public EventCallback<string> OnRemoveItem { get; set; }
+
+    [Parameter]
+    public string ChipClass { get; set; } = string.Empty;
+
+    [Parameter]
+    public string Color { get; set; } = "primary";    
+
+    private void RemoveChip(string chip)
+    {
+        OnRemoveItem.InvokeAsync(chip);
+    }
+}
+

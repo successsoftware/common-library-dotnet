@@ -1,0 +1,33 @@
+﻿.chip {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 32px;
+    padding: 0 12px;
+    margin-right: 1rem;
+    font-size: 13px;
+    font-weight: bold;
+    color: rgba(0,0,0,.7);
+    cursor: pointer;
+    background-color: white;
+    border: 2px solid gray;
+    border-radius: 16px;
+    transition: opacity .3s linear;
+    word-wrap: break-word;
+    text-transform: none;
+    margin-top: 5px;
+    margin-bottom: 5px;    
+}
+
+.chip--remove {
+    float: right;
+    padding-left: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: opacity .15s linear;
+    opacity: .53;
+}
+
+.chip--remove:hover {
+    color: rgba(255,0,0,99)
+}
