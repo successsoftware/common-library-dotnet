@@ -4,4 +4,5 @@ Use to develop the common components, libraries, etc. that will be embedded into
 
 These libraries are owned by [Success Software Software (SSS)](https://successsoftware.global).
 
-AWS_ACCESS_KEY=449c5426-e4f6-4f48-bf5d-4b0436ffc48b
+- AWS_SECRET_ACCESS_KEY=VYHepH2s+p/+fdsfdsfsdfdsfsfdsfsdfsdfsfsdfsdfsdfsd
+- AWS_ACCESS_KEY_ID=DSADSADSADSADADSADSADADSAD
