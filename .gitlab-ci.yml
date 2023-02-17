@@ -16,5 +16,4 @@ pack:
   stage: pack
   script:
     - dotnet pack --force -c Release -o $PWD/nuget -p:PackageVersion=$NUGET_VERSION
-    # - dotnet nuget push "$PWD/nuget/*.nupkg" --api-key $CI_NUGET_APIKEY --source "https://api.nuget.org/v3/index.json"
-    - dotnet nuget push "$PWD/nuget/*.nupkg" --api-key VYHepH2s+p/+fdsfdsfsdfdsfsfdsfsdfsdfsfsdfsdfsdfsd --source "https://api.nuget.org/v3/index.json"
+    - dotnet nuget push "$PWD/nuget/*.nupkg" --api-key $CI_NUGET_APIKEY --source "https://api.nuget.org/v3/index.json"
